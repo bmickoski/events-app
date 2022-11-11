@@ -1,7 +1,24 @@
-import '../styles/globals.css'
+import Layout from "../components/layout/layout";
+import "../styles/globals.css";
+import Head from "next/head";
+import { NotificationContextProvider } from "../store/notification-context";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <NotificationContextProvider>
+      <Layout>
+        <Head>
+          <title>Next Events</title>
+          <meta name="description" content="Next JS Events" />
+          <meta
+            name="viewport"
+            content="intial-scale=1.0, width=device-width"
+          />
+        </Head>
+        <Component {...pageProps} />
+      </Layout>
+    </NotificationContextProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
